@@ -13,7 +13,7 @@ Pasos para Ejecutar el Proyecto en un Entorno NodeJS y VisualStudioCode
 - npm install -g npm@9.8.1
 - npm install aws-sdk
 
-3. Copiar las carpetas src, dist y el archivo tsconfig.json
+3. Copiar las carpetas src, dist y el archivo tsconfig.json en la raíz, dentro de la carpeta repositoriopublico
 4. En la terminal ingresar:
 - npm install -g typescript
 - npm install typescript --save-dev
