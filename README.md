@@ -9,9 +9,9 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente:
 Pasos para Ejecutar el Proyecto en un Entorno NodeJS y VisualStudioCode
 1. Descargar nodejs. En las variables de entorno setear la ruta del nodejs, por ejemplo: C:\Program Files\nodejs\
 2. Abre una terminal en visual code e ingresa los siguientes comandos:
-npm init
-npm install -g npm@9.8.1
-npm install aws-sdk
+- npm init
+- npm install -g npm@9.8.1
+- npm install aws-sdk
 
 3. Copiar las carpetas src, dist y el archivo tsconfig.json
 4. En la terminal ingresar:
