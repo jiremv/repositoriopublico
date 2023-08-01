@@ -15,13 +15,13 @@ Pasos para Ejecutar el Proyecto en un Entorno NodeJS y VisualStudioCode
 
 3. Copiar las carpetas src, dist y el archivo tsconfig.json
 4. En la terminal ingresar:
-npm install -g typescript
-npm install typescript --save-dev
-npm install --save-dev @types/aws-lambda
-npm install --save-dev aws-lambda 
+- npm install -g typescript
+- npm install typescript --save-dev
+- npm install --save-dev @types/aws-lambda
+- npm install --save-dev aws-lambda 
 
-5. Para compilar en la carpeta raíz, a nivel de repositoriopublico, ejecutar el comando
-npm run build
+5. Para compilar en la carpeta raíz, a nivel de repositoriopublico, ejecutar el comando:
+- npm run build
 
 6. De esta forma la carpeta dist contiene el código typescript compilado y la carpeta dist contiene el mismo código en javascript
 el cual podemos utilizar en el proyecto AWS API Gateway LambdaAuthorizer en typescript.
