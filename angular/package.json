@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@angular/cli": "^15.0.0",
+    "critters": "^0.0.20",
+    "iconv-lite": "^0.6.3",
+    "loader-utils": "^3.2.1"
+  }
+}
