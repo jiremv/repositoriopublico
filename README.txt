@@ -13,3 +13,14 @@ Para leer:
 http://localhost:8080/api/v1/1
 
 {"id":1,"name":"nombre"}
+
+
+
+En Angular, los archivos son:
+
+item-list.component.html
+item-list.component.ts
+item.service.ts
+
+Se ejecuta con ng serve
+http://localhost:4200
