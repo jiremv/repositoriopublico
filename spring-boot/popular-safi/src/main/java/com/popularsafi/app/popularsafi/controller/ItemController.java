@@ -1,6 +1,9 @@
 package com.popularsafi.app.popularsafi.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,20 +14,32 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.popularsafi.app.popularsafi.bean.Item;
 import com.popularsafi.app.popularsafi.repo.ItemRepository;
 
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:8080/")
 @RestController
 @RequestMapping("/api/v1")
 public class ItemController {
-    @Autowired
-    private ItemRepository itemRepository;
     
-    //http://localhost:8080/api/v1/1
+	private ItemRepository itemRepository;
+    
+    @Autowired
+    public ItemController(ItemRepository itemRepository) {
+        this.itemRepository = itemRepository;
+    }
+    
+    @GetMapping("/lista")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Item> getItems() {
+        List<Item> lista = itemRepository.findAll();
+        return lista;
+    }
+
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Item> getItemById(@PathVariable Long id) {
@@ -37,11 +52,6 @@ public class ItemController {
     }
 
     @PostMapping
-    /*con Postman:
-     {
-     "name":"nombre"
-      }
-     * */
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Item> createItem(@RequestBody Item item) {
         Item newItem = itemRepository.save(item);
@@ -53,6 +63,7 @@ public class ItemController {
         Item existingItem = itemRepository.findById(id).orElse(null);
         if (existingItem != null) {
             existingItem.setName(item.getName());
+            existingItem.setDescription(item.getDescription());
             Item updatedItem = itemRepository.save(existingItem);
             return new ResponseEntity<>(updatedItem, HttpStatus.OK);
         } else {
@@ -68,6 +79,17 @@ public class ItemController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    
+    @GetMapping("/search")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Item> findByName(@RequestParam String name) {
+        List<Item> items = itemRepository.findByName(name);
+        if (!items.isEmpty()) {
+        	return items;
+        }else {
+        	return itemRepository.findAll();
         }
     }
 }
