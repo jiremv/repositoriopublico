@@ -1,26 +1,13 @@
 En H2:
 
-CREATE TABLE ITEM(ID INT PRIMARY KEY AUTO_INCREMENT, NAME VARCHAR(255));
+DROP TABLE ITEM
 
-Para insertar: 
-Postman POST http://localhost:8080/api/v1
-Body>>Json:
-     {
-     "name":"nombre"
-      }
+CREATE TABLE ITEM(ID INT PRIMARY KEY AUTO_INCREMENT, NAME VARCHAR(255), DESCRIPTION  VARCHAR(255)ITEM ITEM );
 
-Para leer:
-http://localhost:8080/api/v1/1
+SELECT * FROM ITEM 
 
-{"id":1,"name":"nombre"}
-
-
-
-En Angular, los archivos son:
-
-item-list.component.html
-item-list.component.ts
-item.service.ts
+Se ejecuta con SpringBoot
+http://localhost:8080
 
 Se ejecuta con ng serve
 http://localhost:4200
