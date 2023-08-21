@@ -1,3 +1,6 @@
+http://localhost:8180/realms/ExamenSolucion/broker/google/endpoint
+947839977583-mhgj7mp2hkvrhbdvb05fuobbm0e7hi2h.apps.googleusercontent.com
+
 # Basic settings for running in production. Change accordingly before deploying the server.
 
 # Database
